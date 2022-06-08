@@ -1,0 +1,10 @@
+with open('var-19-27.txt', 'r') as F:
+    f=list(map(int,F.readlines()))
+    k=0
+    for x in range(len(f)-1):
+        sum=f[x]
+        for y in range(x+1,len(f)):
+            sum+=f[y]
+            if sum%5==0 and sum%10!=0:
+                k+=1
+print(k)
