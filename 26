@@ -1,0 +1,28 @@
+with open('var-19-27.txt', 'r') as F:
+    f=list(map(int,F.readlines()))
+    Maxweight=0# макс вес партии
+    mw=10000# грузоподъёмность грузовика
+    am=1000# общее кол-во грузов
+    a=[]
+    b=[]
+    s=0# вес партии
+    k=0# кол-во груза в партии
+    K=0# макс кол-во груза в макс партии
+    for i in range(len(f)):
+        if int(f[i])>=310 and int(f[i])<=320:
+            s+=int(f[i])
+            k+=1
+        else:
+            a.append(int(f[i]))
+    b=a.sort()
+    mg=0#макс груз
+    for x in range(am-k):
+        if s<mw and k<am:
+            s+=int(a[x])
+            k+=1
+        if k>=K:
+            K=k
+            if int(a[x]) > mg:
+                mg=int(a[x])
+print(K,mg)
+               
